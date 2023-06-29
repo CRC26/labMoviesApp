@@ -24,7 +24,6 @@ const styles = {
 
 export default function MovieCard(props) {
   const movie = props.movie;
-
   const handleAddToFavourite = (e) => {
     e.preventDefault();
     props.selectFavourite(movie.id);
@@ -33,20 +32,20 @@ export default function MovieCard(props) {
   return (
    <Card sx={styles.card}>
       <CardHeader
-      sx={styles.header}
-      avatar={
-        movie.favourite ? (
-          <Avatar sx={styles.avatar}>
-            <FavoriteIcon />
-          </Avatar>
-        ) : null
-      }
-      title={
-        <Typography variant="h5" component="p">
-          {movie.title}{" "}
-        </Typography>
-      }
-    />
+        sx={styles.header}
+        avatar={
+          movie.favourite ? (
+            <Avatar sx={styles.avatar}>
+              <FavoriteIcon />
+            </Avatar>
+          ) : null
+        }
+        title={
+          <Typography variant="h5" component="p">
+            {movie.title}{" "}
+          </Typography>
+        }
+      />
     <CardMedia
       sx={styles.media}
         mage={
