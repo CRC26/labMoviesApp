@@ -17,11 +17,10 @@ const MoviePage = (props) => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [images, setImages] = useState([]);
+
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${
-        import.meta.env.VITE_TMDB_KEY
-      }`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_TMDB_KEY}`
     )
       .then((res) => {
         return res.json();
@@ -31,11 +30,10 @@ const MoviePage = (props) => {
         setMovie(movie);
       });
   }, [id]);
+
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${id}/images?api_key=${
-        import.meta.env.VITE_TMDB_KEY
-      }`
+      `https://api.themoviedb.org/3/movie/${id}/images?api_key=${import.meta.env.VITE_TMDB_KEY}`
     )
       .then((res) => res.json())
       .then((json) => json.posters)
@@ -45,6 +43,7 @@ const MoviePage = (props) => {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <>
       {movie ? (
@@ -52,7 +51,7 @@ const MoviePage = (props) => {
           <MovieHeader movie={movie} />
           <Grid container spacing={5} style={{ padding: "15px" }}>
             <Grid item xs={3}>
-              <div sx={styles.gridListRoot}>
+              <div sx={styles.imageListRoot}>
                 <ImageList cols={1}>
                   {images.map((image) => (
                     <ImageListItem
@@ -73,9 +72,9 @@ const MoviePage = (props) => {
               <MovieDetails movie={movie} />
             </Grid>
           </Grid>
-        </>
+       </>
       ) : (
-        <h2>Waiting for API data</h2>
+      <h2>Waiting for API data</h2>
       )}
     </>
   );
