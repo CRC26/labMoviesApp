@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 const styles = {
   table: {
     minWidth: 550,
@@ -10,7 +8,7 @@ const styles = {
 
 const UpcomingMovies = (props) => {
     const { id } = useParams();
-    const [movie] = useMovie(id);  // New
+    const [movie] = useMovie(id);  
   
     return (
       <>
