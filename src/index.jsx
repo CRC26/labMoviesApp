@@ -28,14 +28,14 @@ const App = () => {
         <SiteHeader />
           <MoviesContextProvider>
             <Routes>
-              <Route path="/reviews/:id" element={<MovieReviewPage/>} />
-              <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
               <Route path="/movies/:id" element={<MoviePage />} />
               <Route path="/" element={<HomePage />} />
-              <Route path="*" element={<Navigate to="/" />} />
-              <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
+              <Route path="*" element={<Navigate to="/" />} />  
+              <Route path="/reviews/form" element={<AddMovieReviewPage/>} /> 
+              <Route path="/reviews/:id" element={<MovieReviewPage/>} />
+              <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
             </Routes>
-          </MoviesContextProvider>
+        </MoviesContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

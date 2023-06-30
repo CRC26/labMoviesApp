@@ -11,7 +11,6 @@ import styles from "./styles";
 import ratings from "./ratingCategories";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
-
 const ReviewForm = ({ movie }) => {
   const defaultValues = {
     author: "",
@@ -49,11 +48,11 @@ const ReviewForm = ({ movie }) => {
   };
 
   return (
-
     <Box component="div" sx={styles.root}>
       <Typography component="h2" variant="h3">
         Write a review
       </Typography>
+
       <Snackbar
         sx={styles.snack}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
@@ -72,7 +71,6 @@ const ReviewForm = ({ movie }) => {
       </Snackbar>
       
       <form sx={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
-        
         <Controller
           name="author"
           control={control}
@@ -97,7 +95,6 @@ const ReviewForm = ({ movie }) => {
             {errors.author.message}
           </Typography>
         )}
-
         <Controller
           name="review"
           control={control}

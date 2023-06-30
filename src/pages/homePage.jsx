@@ -6,6 +6,7 @@ import Spinner from "../components/spinner";
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
 
 const HomePage = (props) => {
+  const [searchText, setSearchText] =useState("");
   const { data, error, isLoading, isError } = useQuery("discover", getMovies);
 
   if (isLoading) {
@@ -21,7 +22,6 @@ const HomePage = (props) => {
 // const favourites = movies.filter((m) => m.favorite);
 // localStorage.setItem("favourites", JSON.stringify(favourites));
 // const addToFavourites = (movieId) => true;
-
 
 return (
   <PageTemplate
