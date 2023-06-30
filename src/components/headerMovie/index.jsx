@@ -5,6 +5,7 @@ import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import HomeIcon from "@mui/icons-material/Home";
+import Avatar from "@mui/material/Avatar";
 
 const styles = {
     root: {  
@@ -13,6 +14,9 @@ const styles = {
     alignItems: "center",
     flexWrap: "wrap",
     padding: 1.5,
+    avatar: {
+      backgroundColor: "rgb(255, 0, 0)",
+    },
   },
 };
 
@@ -20,11 +24,21 @@ const MovieHeader = (props) => {
   const movie = props.movie;
 
   return (
+
+
     <Paper component="div" sx={styles.root}>
+      avatar={
+        movie.favourite ? (
+          <Avatar sx={styles.avatar}>
+            <FavoriteIcon />
+          </Avatar>
+        ) : null
+      }
+
       <IconButton aria-label="go back">
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
-
+      
       <Typography variant="h4" component="h3">
         {movie.title}{"   "}
         <a href={movie.homepage}>
@@ -33,6 +47,7 @@ const MovieHeader = (props) => {
         <br />
         <span>{`${movie.tagline}`} </span>
       </Typography>
+  
       <IconButton aria-label="go forward">
         <ArrowForwardIcon color="primary" fontSize="large" />
       </IconButton>
