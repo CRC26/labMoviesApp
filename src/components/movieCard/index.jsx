@@ -14,6 +14,7 @@ import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
 import Avatar from "@mui/material/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
+;
 
 const styles = {
   card: { maxWidth: 345 },
@@ -22,23 +23,20 @@ const styles = {
     backgroundColor: "rgb(255, 0, 0)",
   },
 };
-
 export default function MovieCard({ movie, action }) {
-  const { favourites, addToFavourites } = useContext(MoviesContext);
 
-  if (favourites.find((id) => id === movie.id)) {
-    movie.favourite = true;
+  const { favorites } = useContext(MoviesContext);
+  if (favorites.find((id) => id === movie.id)) {
+    movie.favorite = true;
   } else {
-    movie.favourite = false
+    movie.favorite = false
   }
-
   return (
-
    <Card sx={styles.card}>
       <CardHeader
         sx={styles.header}
         avatar={
-          movie.favourite ? (
+          movie.favorites ? (
             <Avatar sx={styles.avatar}>
               <FavoriteIcon />
             </Avatar>
@@ -52,11 +50,11 @@ export default function MovieCard({ movie, action }) {
       />
     <CardMedia
       sx={styles.media}
-        mage={
+      image={
         movie.poster_path
           ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
           : img
-      }
+        }
     />
     <CardContent>
       <Grid container>
@@ -75,12 +73,12 @@ export default function MovieCard({ movie, action }) {
       </Grid>
     </CardContent>
     <CardActions disableSpacing>
-    {action(movie)}
-      <Link to={`/movies/${movie.id}`}>
+      {action(movie)}
+        <Link to={`/movies/${movie.id}`}>
         <Button variant="outlined" size="medium" color="primary">
           More Info ...
         </Button>
-      </Link>
+        </Link>
     </CardActions>
    </Card>
   );

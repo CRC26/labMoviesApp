@@ -7,9 +7,9 @@ import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import SortIcon from '@mui/icons-material/Sort';
+import { getGenres } from "../../api/tmdb-api";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { getGenres } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 
@@ -55,6 +55,7 @@ export default function FilterMoviesCard(props) {
   };
 
   return (
+
     <>
     <Card sx={styles.root} variant="outlined">
       <CardContent>
@@ -70,15 +71,15 @@ export default function FilterMoviesCard(props) {
           value={props.titleFilter}
           variant="filled"
           onChange={handleTextChange}
-    />
+        />
         <FormControl sx={styles.formControl}>
           <InputLabel id="genre-label">Genre</InputLabel>
           <Select
-             labelId="genre-label"
-             id="genre-select"
-             value={props.genreFilter}
-             onChange={handleGenreChange}
-           >
+            labelId="genre-label"
+            id="genre-select"
+            value={props.genreFilter}
+            onChange={handleGenreChange}
+          >
             {genres.map((genre) => {
               return (
                 <MenuItem key={genre.id} value={genre.id}>
