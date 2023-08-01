@@ -100,3 +100,51 @@ export const getTopRated = () => {
      throw error
   });
 };
+
+export const getPopularActors = () => {
+  return fetch(
+    `https://api.themoviedb.org/3/person/popular?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+  .catch((error) => {
+     throw error
+  });
+};
+
+export const getPopularActor = (args) => {
+  // console.log(args)
+  const [, idPart] = args.queryKey;
+  const { person_id } = idPart;
+  return fetch(
+    `https://api.themoviedb.org/3/person/${person_id}?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    throw error
+ });
+};
+
+export const getPersonImages = ({ queryKey }) => {
+  const [, idPart] = queryKey;
+  const { person_id } = idPart;
+  return fetch(
+    `https://api.themoviedb.org/3/person/${person_id}/images_id}?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  ).then( (response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+
+  })
+  .catch((error) => {
+    throw error
+ });
+};

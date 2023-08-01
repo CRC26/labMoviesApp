@@ -25,4 +25,4 @@ const UpcomingMovies = (props) => {
         />
     );
 };  
- export default UpcomingMovies;
+export default UpcomingMovies;
