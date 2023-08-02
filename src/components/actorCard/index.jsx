@@ -38,11 +38,11 @@ export default function ActorCard({person}) {
       /><CardContent>
     </CardContent>
     <CardActions disableSpacing>
-      <Link to={`/popularActor/${person.id}`}>
+      <Link to={`/person/${person.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>
-        </Link>
+      </Link>
     </CardActions>
   </Card>
 );
