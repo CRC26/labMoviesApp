@@ -5,6 +5,7 @@ import Spinner from "../components/spinner";
 import { getPopularActors } from "../api/tmdb-api";
 
 
+
 const PopularActorsPage = (props) => {
   const { data, error, isLoading, isError } = useQuery("popularActors", getPopularActors);
 
@@ -14,13 +15,15 @@ const PopularActorsPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-    const popularActors = data ? data.results : [];
+    const person = data ? data.results : [];
 
 
     return (
         <PageTemplate
-          title="Top Rated"
-          popularActors={popularActors}
+          title="Trending People"
+          person={person}
+          action={(person) => {
+          }}
         />
     );
 };  

@@ -17,34 +17,34 @@ const styles = {
   },
 };
 
-export default function ActorCard({person}) {
+export default function PersonCard({person}) {
   return (
     <Card sx={styles.card}>
-      <CardHeader
+    <CardHeader
       sx={styles.header}
-      title={
+      name={
         <Typography variant="h5" component="p">
           {person.name}{" "}
         </Typography>
       }
     />
-      <CardMedia
-        sx={styles.media}
-        image={
-          person.profile_path
-            ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
-            : img
-        }
-      /><CardContent>
-    </CardContent>
-    <CardActions disableSpacing>
+  <CardMedia
+    sx={styles.media}
+    image={
+      person.profile_path
+        ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
+        : img
+      }
+  />
+  <cardContent></cardContent>
+  <CardActions disableSpacing>
       <Link to={`/person/${person.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-            More Info ...
-          </Button>
+      <Button variant="outlined" size="medium" color="primary">
+        More Info ...
+      </Button>
       </Link>
-    </CardActions>
-  </Card>
+  </CardActions>
+ </Card>
 );
 }
    

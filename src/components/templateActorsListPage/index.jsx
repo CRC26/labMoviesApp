@@ -1,26 +1,28 @@
 import React from "react";
+import title from "../personCard";
 import Grid from "@mui/material/Grid";
-import Person from "../actorCard";
-
+import Person from "../personCard";
+import Header from "../headerPersonList";
 
 const styles = {
-  root: {
-    padding: "20px",
-  },
-  fab: {
-    marginTop: 8,
-    position: "fixed",
-    top: 2,
-    right: 2,
+    root: {
+      padding: "20px",
+    },
+    fab: {
+      marginTop: 8,
+      position: "fixed",
+      top: 2,
+      right: 2,
   },
 };
 
-function TemplateActorsListPage ({ popularActors }) {
+function TemplateActorsListPage ({ person }) {
   return (
    <>
+     <Header title={title} />
       <Grid container sx={styles.root}>
         <Grid item container spacing={1}>
-            {popularActors.map((person) =>  (
+            {person.map((person) =>  (
               <Grid key={person.id} item xs={12} sm={6} md={4} lg={3} xl={2}>
                 <Person key={person.id} person={person} />
               </Grid>

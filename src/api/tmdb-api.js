@@ -115,12 +115,12 @@ export const getPopularActors = () => {
   });
 };
 
-export const getPopularActor = (args) => {
+export const getPersonDetails = (args) => {
   console.log(args)
   const [, idPart] = args.queryKey;
-  const { person_id } = idPart;
+  const { id } = idPart;
   return fetch(
-    `https://api.themoviedb.org/3/person/${person_id}?api_key=${import.meta.env.VITE_TMDB_KEY}`
+    `https://api.themoviedb.org/3/person/${id}?api_key=${import.meta.env.VITE_TMDB_KEY}`
   ).then((response) => {
     if (!response.ok) {
       throw new Error(response.json().message);
@@ -132,7 +132,7 @@ export const getPopularActor = (args) => {
  });
 };
 
-export const getActorImages = ({ queryKey }) => {
+export const getPersonImages = ({ queryKey }) => {
   const [, idPart] = queryKey;
   const { person_id } = idPart;
   return fetch(
