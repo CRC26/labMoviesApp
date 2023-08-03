@@ -1,13 +1,14 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
+import CardContent from "@mui/material/CardContent";
+
 
 const styles = {
   card: { maxWidth: 345 },
@@ -19,15 +20,15 @@ const styles = {
 
 export default function PersonCard({person}) {
   return (
-    <Card sx={styles.card}>
+  <Card sx={styles.card}>
     <CardHeader
       sx={styles.header}
-      name={
+      title={
         <Typography variant="h5" component="p">
           {person.name}{" "}
         </Typography>
       }
-    />
+  />
   <CardMedia
     sx={styles.media}
     image={
@@ -36,7 +37,8 @@ export default function PersonCard({person}) {
         : img
       }
   />
-  <cardContent></cardContent>
+  <CardContent>
+  </CardContent>
   <CardActions disableSpacing>
       <Link to={`/person/${person.id}`}>
       <Button variant="outlined" size="medium" color="primary">
