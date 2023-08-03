@@ -4,8 +4,6 @@ import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import { getPopularActors } from "../api/tmdb-api";
 
-
-
 const PopularActorsPage = (props) => {
   const { data, error, isLoading, isError } = useQuery("popularActors", getPopularActors);
 
