@@ -6,7 +6,6 @@ import { getPersonImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 
-
 const styles = {
   gridListRoot: {
     display: "flex",
@@ -18,7 +17,6 @@ const styles = {
     height: '100vh',
   },
 };
-
 const TemplatePersonPage = ({ person, children }) => {
   const { data , error, isLoading, isError } = useQuery(
     ["images", { id: person.id }],
@@ -35,33 +33,35 @@ const TemplatePersonPage = ({ person, children }) => {
   const images = data.posters 
 
   return (
-      <>
-      <Grid container spacing={5} style={{ padding: "15px" }}>
-        <Grid item xs={3}>
-          <div sx={styles.gridListRoot}>
-            <ImageList cols={1}>
-              {images.map((image) => (
-                <ImageListItem
-                  key={image.file_path}
-                  sx={styles.gridListTile}
-                  cols={1}
-                >
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
-                    alt={image.poster_path}
-                  />
-                </ImageListItem>
-              ))}
-            </ImageList>
-          </div>
-        </Grid>
+    <>
+   
 
-        <Grid item xs={9}>
-          {children}
-        </Grid>
+    <Grid container spacing={5} style={{ padding: "15px" }}>
+      <Grid item xs={3}>
+        <div sx={styles.gridListRoot}>
+          <ImageList cols={1}>
+            {images.map((image) => (
+              <ImageListItem
+                key={image.file_path}
+                sx={styles.gridListTile}
+                cols={1}
+              >
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
+                  alt={image.poster_path}
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
+        </div>
       </Grid>
-    </>
-  );
+
+      <Grid item xs={9}>
+        {children}
+      </Grid>
+    </Grid>
+  </>
+);
 };
 
 

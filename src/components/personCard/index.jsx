@@ -9,7 +9,6 @@ import img from '../../images/film-poster-placeholder.png'
 import { Link } from "react-router-dom";
 import CardContent from "@mui/material/CardContent";
 
-
 const styles = {
   card: { maxWidth: 345 },
   media: { height: 500 },

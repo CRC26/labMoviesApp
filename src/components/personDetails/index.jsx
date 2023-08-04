@@ -1,10 +1,7 @@
-import React from "react";
-import Chip from "@mui/material/Chip";
-import Paper from "@mui/material/Paper";
+import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 
-
-const styles = {  
+const styles = {
   chipSet: {
     display: "flex",
     justifyContent: "center",
@@ -24,33 +21,12 @@ const styles = {
   },
 };
 
-const PersonDetails = ({person}) => {
-
+const PersonCard =  ({ person }) => {
   return (
     <>
-    <Typography variant="h4" component="p">
-        {person.name}
-      </Typography>
-
-      <Typography variant="h5" component="h3">
-        Overview
-      </Typography>
-
-      <Typography variant="h6" component="p">
-        {person.biography}
-      </Typography>
-
-      <Paper component="ul" sx={styles.chipSet}>
-        <li>
-          <Chip label="KnownAs" sx={styles.chipLabel} color="primary" />
-        </li>
-        {person.also_known_as.map((g) => (
-          <li key={e.name}>
-            <Chip label={e.name}  />
-          </li>
-        ))}
-      </Paper>
-      </>
+      <p>Review By: {person.name} </p>
+      <p>{person.biography} </p>
+    </>
   );
 };
-export default  PersonDetails ;
+export default PersonCard;
