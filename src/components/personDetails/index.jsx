@@ -1,5 +1,13 @@
 import React, { useState } from "react";
+import Chip from "@mui/material/Chip";
+import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import StarRate from "@mui/icons-material/StarRate";
+import CakeIcon from '@mui/icons-material/Cake';
+
+
 
 const styles = {
   chipSet: {
@@ -21,12 +29,27 @@ const styles = {
   },
 };
 
-const PersonCard =  ({ person }) => {
-  return (
-    <>
-      <p>Review By: {person.name} </p>
-      <p>{person.biography} </p>
-    </>
-  );
+const PersonDetails =  ({ person }) => {
+  return<>
+    <Typography variant="h4" component="h3">
+       {person.name}
+    </Typography>
+
+    <Typography variant="h6" component="p">
+        {person.biography}
+    </Typography> 
+
+    <Paper component="ul" sx={styles.chipSet}>
+        <Chip icon={<CakeIcon />} label={`${person.birthday}`} />
+        <Chip
+          icon={<WorkOutlineIcon />}
+          label={`${person.known_for_department.toLocaleString()}`}
+        />
+        <Chip
+          icon={<StarRate />}
+          label={`${person.popularity}`}
+        />
+      </Paper>
+  </>
 };
-export default PersonCard;
+export default PersonDetails;
