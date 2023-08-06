@@ -1,6 +1,6 @@
 
 import { useParams } from "react-router-dom";
-//import PersonHeader from "../components/HeaderPerson/";
+import PersonHeader from "../components/personHeader/";
 import PersonDetails from "../components/personDetails/";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
@@ -49,8 +49,10 @@ const PersonDetailsPage = () => {
     <>
       {person ? (
         <>
+         <PersonHeader person={person} />
+
           <Grid container spacing={5} style={{ padding: "15px" }}>
-            <Grid item xs={3}>
+              <Grid item xs={3}>
               <div sx={styles.imageListRoot}>
                 <ImageList cols={1}>
                   {images.map((image) => (

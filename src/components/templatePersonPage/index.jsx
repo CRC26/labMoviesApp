@@ -5,6 +5,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { getPersonImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
+import PersonHeader from '../components/personHeader'
 
 const styles = {
   gridListRoot: {
@@ -30,38 +31,38 @@ const TemplatePersonPage = ({ person, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const images = data.posters 
-
+  const images = data.profiles
   return (
     <>
-   
-
-    <Grid container spacing={5} style={{ padding: "15px" }}>
-      <Grid item xs={3}>
-        <div sx={styles.gridListRoot}>
-          <ImageList cols={1}>
-            {images.map((image) => (
-              <ImageListItem
-                key={image.file_path}
-                sx={styles.gridListTile}
-                cols={1}
-              >
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
-                  alt={image.poster_path}
-                />
-              </ImageListItem>
-            ))}
-          </ImageList>
-        </div>
+      <Grid container spacing={5} style={{ padding: "15px" }}>
+        <Grid item xs={12}>
+          <PersonHeader title={title} />
+        </Grid>
+          <Grid item xs={3}>
+              <div sx={styles.imageListRoot}>
+                <ImageList cols={1}>
+                  {images.map((image) => (
+                    <ImageListItem
+                      key={image.file_path}
+                      sx={styles.gridListTile}
+                      cols={1}
+                    >
+                     <img
+                        src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
+                        alt={'Image alternative'}
+                      />                    
+                    </ImageListItem>
+                  ))}
+                </ImageList>
+              </div>
+          </Grid>
+          
+          <Grid item xs={9}>
+            {children}
+          </Grid>
       </Grid>
-
-      <Grid item xs={9}>
-        {children}
-      </Grid>
-    </Grid>
-  </>
-);
+    </>
+  );
 };
 
 

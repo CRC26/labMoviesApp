@@ -5,37 +5,40 @@ import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
+
 const styles = {
-  root: {
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-    flexWrap: "wrap",
-    marginBottom: 1.5,
+  root: {  
+  display: "flex",
+  justifyContent: "space-around",
+  alignItems: "center",
+  flexWrap: "wrap",
+  padding: 1.5,
+  avatar: {
+    backgroundColor: "rgb(255, 0, 0)",
   },
+},
 };
 
-const Header = (props ) => {
-  const title = props.title
+const PersonHeader = (props) => {
+  const person = props.person;
 
   return (
+
     <Paper component="div" sx={styles.root}>
-      <IconButton
-        aria-label="go back"
-      >
+
+      <IconButton aria-label="go back">
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
-
+      
       <Typography variant="h4" component="h3">
-        Trending People
+        {person.name}{"   "}
       </Typography>
-      <IconButton
-        aria-label="go forward"
-      >
+  
+      <IconButton aria-label="go forward">
         <ArrowForwardIcon color="primary" fontSize="large" />
       </IconButton>
     </Paper>
   );
 };
 
-export default Header;
+export default PersonHeader;

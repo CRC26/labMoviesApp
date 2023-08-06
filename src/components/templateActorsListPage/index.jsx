@@ -19,8 +19,10 @@ const styles = {
 function TemplateActorsListPage ({ person }) {
   return (
    <>
-     <Header title={title} />
-      <Grid container sx={styles.root}>
+    <Grid container sx={styles.root}>
+       <Grid item xs={12}>
+        <Header title={title} />
+    </Grid>
         <Grid item container spacing={1}>
             {person.map((person) =>  (
               <Grid key={person.id} item xs={12} sm={6} md={4} lg={3} xl={2}>
