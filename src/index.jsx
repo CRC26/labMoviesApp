@@ -10,6 +10,7 @@ import MovieReviewPage from "./pages/movieReviewPage";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import PopularActorsPage from './pages/popularActorsPage';
 import PersonDetailsPage from './pages/personDetailsPage';
+import TvListPage from './pages/tvListPage';
 import SiteHeader from './components/siteHeader';
 import MoviesContextProvider from "./contexts/moviesContext";
 import { QueryClientProvider, QueryClient } from "react-query";
@@ -31,6 +32,7 @@ const App = () => {
          <SiteHeader />
            <MoviesContextProvider>
              <Routes>
+               <Route path="/discover/tv" element={<TvListPage />} />
                <Route path="/person/popularActors" element={<PopularActorsPage />} />
                <Route path="/person/:id" element={<PersonDetailsPage />} />
                <Route path="/reviews/form" element={<AddMovieReviewPage/>} />

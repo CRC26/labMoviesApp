@@ -28,7 +28,7 @@ const ReviewForm = ({ movie }) => {
   const navigate = useNavigate();
   const context = useContext(MoviesContext);
   const [rating, setRating] = useState(3);
-  const [open, setOpen] = useState(false);  //NEW
+  const [open, setOpen] = useState(false);
 
   const handleRatingChange = (event) => {
     setRating(event.target.value);
@@ -36,7 +36,7 @@ const ReviewForm = ({ movie }) => {
 
   const handleSnackClose = (event) => {
     setOpen(false);
-    navigate("/movies/favourites");
+    navigate("/movies/favorites");
   };
 
   const onSubmit = (review) => {

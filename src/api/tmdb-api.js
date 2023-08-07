@@ -148,3 +148,54 @@ export const getPersonImages = ({ queryKey }) => {
     throw error
  });
 };
+
+export const getTv= () => {
+  return fetch(
+    "https://api.themoviedb.org/3/discover/tv?api_key=" +
+    import.meta.env.VITE_TMDB_KEY +
+    "&include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc"
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+  .catch((error) => {
+     throw error
+  });
+};
+
+export const getTvImages = ({ queryKey }) => {
+  const [, idPart] = queryKey;
+  const { id } = idPart;
+  return fetch(
+    "https://api.themoviedb.org/3/tv/{series_id}/images?api_key=" +
+    import.meta.env.VITE_TMDB_KEY
+
+  ).then( (response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+
+  })
+  .catch((error) => {
+    throw error
+ });
+};
+
+export const getTvGenres = async () => {
+  return fetch(
+    "https://api.themoviedb.org/3/genre/tv/list?api_key=" +
+      import.meta.env.VITE_TMDB_KEY +
+      "&language=en-US"
+  ).then( (response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    throw error
+ });
+};

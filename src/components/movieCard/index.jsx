@@ -23,14 +23,20 @@ const styles = {
     backgroundColor: "rgb(255, 0, 0)",
   },
 };
-export default function MovieCard({ movie, action }) {
-
-  const { favorites } = useContext(MoviesContext);
+export default function MovieCard({ movie, action }) {      // Destructure props
+  const { favorites, addToFavorites } = useContext(MoviesContext);
+  
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;
   } else {
     movie.favorite = false
   }
+
+  const handleAddToFavorites = (e) => {
+    e.preventDefault();
+    addToFavorites(movie);
+  };
+
   return (
    <Card sx={styles.card}>
       <CardHeader
