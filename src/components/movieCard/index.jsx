@@ -1,5 +1,7 @@
+import React, { useContext } from "react";
+import { MoviesContext } from "../../contexts/moviesContext";
 import { Link } from "react-router-dom";
-import React, { useContext  } from "react";
+import Avatar from "@mui/material/Avatar";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -12,9 +14,7 @@ import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
-import Avatar from "@mui/material/Avatar";
-import { MoviesContext } from "../../contexts/moviesContext";
-;
+import QueueIcon from '@mui/icons-material/Queue';
 
 const styles = {
   card: { maxWidth: 345 },
@@ -23,8 +23,10 @@ const styles = {
     backgroundColor: "rgb(255, 0, 0)",
   },
 };
-export default function MovieCard({ movie, action }) {      // Destructure props
+
+export default function MovieCard({ movie, action }) {     
   const { favorites, addToFavorites } = useContext(MoviesContext);
+  const { playlist, addToPlaylist } = useContext(MoviesContext);
   
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;
@@ -32,35 +34,43 @@ export default function MovieCard({ movie, action }) {      // Destructure props
     movie.favorite = false
   }
 
-  const handleAddToFavorites = (e) => {
-    e.preventDefault();
-    addToFavorites(movie);
-  };
+  if (playlist.find((id) => id === movie.id)) {
+    movie.watchList = true;
+  } else {
+    movie.watchList = false
+  }
 
   return (
    <Card sx={styles.card}>
       <CardHeader
         sx={styles.header}
-        avatar={
-          movie.favorites ? (
+        avatar={  
+         <>
+          {movie.favorite ? (
             <Avatar sx={styles.avatar}>
               <FavoriteIcon />
             </Avatar>
-          ) : null
+          ) : null}
+          {movie.watchList ? (
+            <Avatar sx={styles.avatar}>
+              <QueueIcon />
+            </Avatar>
+          ) : null}
+         </>
         }
         title={
           <Typography variant="h5" component="p">
             {movie.title}{" "}
           </Typography>
         }
-      />
-    <CardMedia
-      sx={styles.media}
-      image={
+     />
+     <CardMedia
+       sx={styles.media}
+       image={
         movie.poster_path
           ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
           : img
-        }
+      }
     />
     <CardContent>
       <Grid container>

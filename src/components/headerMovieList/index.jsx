@@ -22,8 +22,7 @@ const Header = (props ) => {
   return (
     <Paper component="div" sx={styles.root}>
       <IconButton
-        aria-label="go back"
-      >
+        aria-label="go back">
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
 

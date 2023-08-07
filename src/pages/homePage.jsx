@@ -4,6 +4,7 @@ import { getMovies } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorite'
+import AddToPlaylistIcon from '../components/cardIcons/addToPlaylist'
 
 
  const HomePage = (props) => {
@@ -22,8 +23,13 @@ import AddToFavoritesIcon from '../components/cardIcons/addToFavorite'
       title="Discover Movies"
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
-      }}
+        return (
+        <>
+          <AddToFavoritesIcon movie={movie} />
+          <AddToPlaylistIcon movie={movie} />
+        </>
+        );         
+      }}   
     />
   );
 };

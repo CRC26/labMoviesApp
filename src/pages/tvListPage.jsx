@@ -20,7 +20,7 @@ import Spinner from "../components/spinner";
        title="Discover TV"
        tv={tv}
        action={(tv) => {
-
+        
        }}
      />
    );
