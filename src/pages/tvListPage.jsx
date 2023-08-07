@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 
  const TvListPage = () => {
-    const { data, error, isLoading, isError } = useQuery("discover", getTv);
+    const { data, error, isLoading, isError } = useQuery("discovery", getTv);
 
     if (isLoading) {
      return <Spinner />;
