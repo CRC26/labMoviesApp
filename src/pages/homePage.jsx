@@ -6,7 +6,6 @@ import Spinner from "../components/spinner";
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorite'
 import AddToPlaylistIcon from '../components/cardIcons/addToPlaylist'
 
-
  const HomePage = (props) => {
    const { data, error, isLoading, isError } = useQuery("discover", getMovies);
 
