@@ -13,7 +13,6 @@ import Select from "@mui/material/Select";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 
-
 const styles = {
   root: {
     maxWidth: 345,
@@ -80,13 +79,13 @@ export default function FilterMoviesCard(props) {
           value={props.titleFilter}
           variant="filled"
           onChange={handleTextChange}
-        />
+          />      
         <TextField
           sx={styles.formControl}
           id="releaseDateBefore"
           label="Released Before"
           type="date"
-          value={props.releaseDateBeforeFilterFilter}
+          value={props.firstReleaseDateBeforeChangeFilter}
           variant="filled"
           onChange={handleReleaseDateBeforeChange}
         />
@@ -95,7 +94,7 @@ export default function FilterMoviesCard(props) {
           id="releaseDateAfter"
           label="Released After"
           type="date"
-          value={props.releaseDateAfterFilterFilter}
+          value={props.firstReleaseDateAfterChange}
           variant="filled"
           onChange={handleReleaseDateAfterChange}
         />

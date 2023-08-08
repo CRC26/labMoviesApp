@@ -1,4 +1,4 @@
-export default {
+const sampleMovie = {
   adult: false,
   backdrop_path: "/5Iw7zQTHVRBOYpA0V6z0yypOPZh.jpg",
   belongs_to_collection: {
@@ -77,4 +77,34 @@ export default {
   video: false,
   vote_average: 7,
   vote_count: 9692,
+};
+
+const samplePerson = {
+  adult: false,
+  also_known_as: [
+    "Jennifer Lynn Connelly ",
+    "제니퍼 코넬리",
+    "Τζένιφερ Λιν Κόνελι",
+    "Τζένιφερ Κόνελι",
+    "珍妮佛‧康納莉",
+    "Дженнифер Коннелли",
+    "جنیفر کانلی",
+    "詹妮弗·康纳利",
+    "ჯენიფერ კონელი",
+    "Jennifer L. Connelly",
+    "ジェニファー・コネリー",
+    "珍妮弗·康奈利"
+  ],
+  biography: "Jennifer Lynn Connelly (born December 12, 1970) is an American actress.",
+  birthday: "1970-12-12",
+  deathday: "null",
+  gender: 1,
+  homepage: "null",
+  id: "6161",
+  imdb_id: "nm0000124",
+  known_for_department: "Acting",
+  name: "Jennifer Connelly",
+  place_of_birth: "Cairo, New York, USA",
+  popularity: 98.753,
+  profile_path: "/p17ymzw1sb9eo2SOp88jnwyryan.jpg"
 };

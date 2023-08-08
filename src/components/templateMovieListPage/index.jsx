@@ -36,22 +36,9 @@ function MovieListPageTemplate({ movies, title, action }) {
     });
 
   const handleChange = (type, value) => {
-    switch (type) {
-      case "title":
-        setTitleFilter(value);
-        break;
-      case "title":
-        setGenreFilter(value);
-        break;
-      case "releaseDateBeforeFilter":
-        setReleaseDateBeforeFilter(value);
-        break;
-      case "releaseDateAfterFilter":
-        setReleaseDateAfterFilter(value);
-        break;
-        default:
-        break;
-    }
+      if (type === "title") setTitleFilter(value);
+      else setGenreFilter(value);
+
   };
 
   return (

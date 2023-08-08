@@ -32,6 +32,7 @@ const PersonHeader = (props) => {
       
       <Typography variant="h4" component="h3">
         {person.name}{"   "}
+        <a href={person.homepage}></a>
       </Typography>
   
       <IconButton aria-label="go forward">
