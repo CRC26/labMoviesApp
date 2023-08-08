@@ -13,6 +13,7 @@ import Select from "@mui/material/Select";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 
+
 const styles = {
   root: {
     maxWidth: 345,
@@ -54,6 +55,14 @@ export default function FilterMoviesCard(props) {
     handleUserImput(e, "genre", e.target.value);
   };
 
+  const handleReleaseDateBeforeChange = (e) => {
+    handleUserImput(e, "release_date_before", e.target.value);
+  } ;
+  const handleReleaseDateAfterChange = (e) => {
+    handleUserImput(e, "release_date_after", e.target.value);
+  
+  };
+
   return (
 
     <>
@@ -71,6 +80,24 @@ export default function FilterMoviesCard(props) {
           value={props.titleFilter}
           variant="filled"
           onChange={handleTextChange}
+        />
+        <TextField
+          sx={styles.formControl}
+          id="releaseDateBefore"
+          label="Released Before"
+          type="date"
+          value={props.releaseDateBeforeFilterFilter}
+          variant="filled"
+          onChange={handleReleaseDateBeforeChange}
+        />
+        <TextField
+          sx={styles.formControl}
+          id="releaseDateAfter"
+          label="Released After"
+          type="date"
+          value={props.releaseDateAfterFilterFilter}
+          variant="filled"
+          onChange={handleReleaseDateAfterChange}
         />
         <FormControl sx={styles.formControl}>
           <InputLabel id="genre-label">Genre</InputLabel>

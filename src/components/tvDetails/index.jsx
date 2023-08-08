@@ -39,7 +39,9 @@ const TvDetails = ( {tv}) => {
       <Typography variant="h6" component="p">
         {tv.overview}
       </Typography>
-
+      <Paper component="ul" sx={styles.chipSet}>
+        <Chip label={`Released: ${tv.first_air_date}`} />
+      </Paper>
       <Paper component="ul" sx={styles.chipSet}>
         <li>
           <Chip label="seasons" sx={styles.chipLabel} color="primary" />

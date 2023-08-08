@@ -29,7 +29,7 @@ const TvHeader = (props) => {
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
       <Typography variant="h4" component="h3">
-        {tv.title}{"   "}
+        {tv.name}{"   "}
         <a href={tv.homepage}>
           <HomeIcon color="primary"  fontSize="='large"/>
         </a>

@@ -54,6 +54,14 @@ export default function FilterCard(props) {
     handleUserImput(e, "genre", e.target.value);
   };
 
+  const handleFirstAirDateBeforeChange = (e) => {
+    handleUserImput(e, "first_air_before", e.target.value);
+  } ;
+  const handlefirstAirDateAfterChange = (e) => {
+    handleUserImput(e, "first_air_after", e.target.value);
+  
+  };
+
   return (
 
     <>
@@ -71,6 +79,24 @@ export default function FilterCard(props) {
           value={props.titleFilter}
           variant="filled"
           onChange={handleTextChange}
+        />
+        <TextField
+          sx={styles.formControl}
+          id="firstAirBefore"
+          label="Aired Before"
+          type="date"
+          value={props.firstAirDateBeforeChangeFilter}
+          variant="filled"
+          onChange={handleFirstAirDateBeforeChange}
+        />
+        <TextField
+          sx={styles.formControl}
+          id="firstAirAfter"
+          label="Aired After"
+          type="date"
+          value={props.firstAirDateAfterChange}
+          variant="filled"
+          onChange={handlefirstAirDateAfterChange}
         />
         <FormControl sx={styles.formControl}>
           <InputLabel id="genre-label">Genre</InputLabel>
